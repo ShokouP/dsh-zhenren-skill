@@ -4,7 +4,10 @@ description: "甲骨占卜仪式：把所问凝成命辞，灼龟取兆，依兆
 whenToUse: 用户明确说占卜、起卜、算一卦、看吉凶、甲骨、贞人，或要求用甲骨卜辞形式回答时。普通提问不要调用。
 ---
 
-# zhenren —— 按需加载的甲骨占卜（v2，对齐 dsh-plugin-zhenren）
+# zhenren —— 按需加载的甲骨占卜（v2，移植自 dsh-plugin-zhenren）
+
+> 本 skill 是 `dsh-plugin-zhenren` 1.0.0-alpha.1 的**移植版**，不是原版，也不是官方版本。
+> 原版是 DSH 插件；本仓库把它的协议 / 数据 / 卡片行为移植成按需加载的 skill。来源与差异见 [`ORIGIN.md`](ORIGIN.md)。
 
 按需加载的占卜 skill，用来替代旧的常驻插件 `dsh-plugin-zhenren`。
 它**不向系统提示注入人格**：只有本 skill 被加载、用户明确要求占卜时，才按下面的次序主持一次。

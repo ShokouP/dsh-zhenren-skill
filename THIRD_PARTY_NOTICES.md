@@ -4,6 +4,12 @@
 
 本 skill 的代码（`scripts/`、`assets/`、`test/`）以 MIT 授权发布，全文见 [`LICENSE`](LICENSE)。
 
+## 0. 与原插件的关系
+
+本 skill 是 `dsh-plugin-zhenren` 1.0.0-alpha.1 的**移植版**，不是原版，也不是官方版本。
+原插件的代码、数据与字体版权归原作者与上游来源；本仓库再分发数据 / 字体，并按原插件行为重写了 skill 代码。
+搬运范围、文件对应与差异见 [`ORIGIN.md`](ORIGIN.md)。
+
 ## 1. 甲骨字形字体
 
 - 资产：`data/fonts/orac.woff2`（原样复制，未修改、未重命名、未子集化）

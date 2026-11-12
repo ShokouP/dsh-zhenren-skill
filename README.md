@@ -1,15 +1,20 @@
-# 甲骨贞人 · DSH skill
+# 甲骨贞人 · DSH skill（移植版）
 
-把 `dsh-plugin-zhenren` 的甲骨占卜能力搬成一个**按需加载的 DSH skill**：
-不常驻人格、不向系统提示注入贞人身份；只有用户明确要求占卜、起卜、看吉凶时才加载。
+> **本仓库是移植版，不是原版，也不是官方版本。**
+>
+> 本仓库把 **`dsh-plugin-zhenren` 1.0.0-alpha.1**（DSH 插件，MIT，版权归「甲骨贞人 contributors」）的占卜协议、数据、字体与卡片行为，移植成按需加载的 DSH skill。
+> 原插件、原数据与字体的版权/授权仍归原作者与上游来源；本仓库不代表原项目，也不对原项目作任何官方声明。
+> 移植代码是依据原插件 tarball 内 `lib/*.js.map` 还原的 TS 源码重写的；数据/字体来源与许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)，搬运范围、文件对应与差异见 [ORIGIN.md](ORIGIN.md)。
+
+本 skill **不常驻人格、不向系统提示注入贞人身份**；只有用户明确要求占卜、起卜、看吉凶时才加载。
 
 **问 → 命辞 → 灼龟 → 兆 → 刻辞 → 读**。
 
 ![甲片卡](docs/card.png)
 
-## 和原插件对照
+## 和原版对照（移植来源）
 
-| 能力 | 原插件 `dsh-plugin-zhenren` | 本 skill |
+| 能力 | 原版 `dsh-plugin-zhenren` | 本仓库（移植版） |
 |---|---|---|
 | 常驻人格 | 注入 system prompt | **不注入**，按需加载 |
 | 工具形态 | `zhenren_burn` / `zhenren_inscribe` | `scripts/zhenren.mjs burn` / `inscribe` |
@@ -32,6 +37,14 @@
 
 - 卡片是独立的 HTML 文件（可直接打开、分享、归档），不是聊天内嵌的 tool view；
 - 前辞沿用灼龟当日的干支（状态里保存），而不是刻辞进程启动时的当日干支。
+
+## 原版信息
+
+- 包名/版本：`dsh-plugin-zhenren` 1.0.0-alpha.1
+- 形态：DSH 插件（原生 `zhenren_burn` / `zhenren_inscribe` + 系统提示段 + 聊天内 React tool view）
+- 许可：MIT；版权：甲骨贞人 contributors
+- 原始数据/字体来源：见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
+- 原版安装包未随本仓库分发；原版包内未声明公开仓库地址，如原项目有官方地址，请以原项目为准
 
 ## 安装
 
@@ -146,6 +159,7 @@ node $z corpus
 
 再分发数据或字体时，请保留 `THIRD_PARTY_NOTICES.md`、`licenses/` 与 `data/fonts/OFL.txt`。
 `data/oracle.json` 的 `source` 字段与 `data/manifest.json` 记录了来源与校验信息。
+原版 / 移植关系、文件对应与差异见 [`ORIGIN.md`](ORIGIN.md)；本仓库不是原版。
 
 ## 边界
 
@@ -164,6 +178,7 @@ node test/smoke.mjs
 
 ```text
 SKILL.md                按需加载的占卜说明
+ORIGIN.md               移植来源、文件对应与差异
 scripts/zhenren.mjs     burn / inscribe / lookup / corpus
 scripts/card.mjs        甲片卡 HTML 生成
 assets/card.css         卡片样式
