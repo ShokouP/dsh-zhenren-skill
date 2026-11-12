@@ -1,0 +1,19 @@
+{
+  "name": "dsh-zhenren-skill",
+  "version": "2.0.0",
+  "private": true,
+  "description": "甲骨贞人：按需加载的 DSH 占卜 skill，含 1,425 字形、627 别名、1,181 说文头与可回放甲片卡。",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShokouP/dsh-zhenren-skill.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node test/smoke.mjs",
+    "smoke": "node test/smoke.mjs"
+  }
+}

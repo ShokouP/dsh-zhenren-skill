@@ -1,0 +1,6 @@
+node_modules/
+state/
+zhenren-out/
+config.local.json
+*.log
+.DS_Store
