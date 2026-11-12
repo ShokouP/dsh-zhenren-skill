@@ -2,7 +2,9 @@
 
 > **本仓库是移植版，不是原版，也不是官方版本。**
 >
-> 本仓库把 **`dsh-plugin-zhenren` 1.0.0-alpha.1**（DSH 插件，MIT，版权归「甲骨贞人 contributors」）的占卜协议、数据、字体与卡片行为，移植成按需加载的 DSH skill。
+> 上游仓库：<https://github.com/SodiumHypo/dsh-plugins/tree/master/packages/zhenren>（当前 `master` 为 `1.1.0-beta.1`；本仓库只移植到 `1.0.0-alpha.1` 基线）。
+>
+> 本仓库把 **`dsh-plugin-zhenren` 1.0.0-alpha.1**（本地安装包快照；DSH 插件，MIT，版权归「甲骨贞人 contributors」）的占卜协议、数据、字体与卡片行为，移植成按需加载的 DSH skill。
 > 原插件、原数据与字体的版权/授权仍归原作者与上游来源；本仓库不代表原项目，也不对原项目作任何官方声明。
 > 移植代码是依据原插件 tarball 内 `lib/*.js.map` 还原的 TS 源码重写的；数据/字体来源与许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)，搬运范围、文件对应与差异见 [ORIGIN.md](ORIGIN.md)。
 
@@ -12,9 +14,11 @@
 
 ![甲片卡](docs/card.png)
 
-## 和原版对照（移植来源）
+## 和移植基线对照（1.0.0-alpha.1）
 
-| 能力 | 原版 `dsh-plugin-zhenren` | 本仓库（移植版） |
+> 下表对照的是本仓库的移植基线 `dsh-plugin-zhenren@1.0.0-alpha.1`；上游 `master` 当前是 `1.1.0-beta.1`，增量与尚未移植项见下。
+
+| 能力 | 移植基线 `1.0.0-alpha.1` | 本仓库（移植版） |
 |---|---|---|
 | 常驻人格 | 注入 system prompt | **不注入**，按需加载 |
 | 工具形态 | `zhenren_burn` / `zhenren_inscribe` | `scripts/zhenren.mjs burn` / `inscribe` |
@@ -38,13 +42,16 @@
 - 卡片是独立的 HTML 文件（可直接打开、分享、归档），不是聊天内嵌的 tool view；
 - 前辞沿用灼龟当日的干支（状态里保存），而不是刻辞进程启动时的当日干支。
 
-## 原版信息
+## 上游与版本基线
 
-- 包名/版本：`dsh-plugin-zhenren` 1.0.0-alpha.1
-- 形态：DSH 插件（原生 `zhenren_burn` / `zhenren_inscribe` + 系统提示段 + 聊天内 React tool view）
+- 上游仓库：<https://github.com/SodiumHypo/dsh-plugins/tree/master/packages/zhenren>
+- 本仓库移植基线：`dsh-plugin-zhenren` **1.0.0-alpha.1**（本地安装包快照）
+- 上游当前 `master`：**1.1.0-beta.1**
+- 基线数据：1,425 字形、627 别名、1,181 说文头；`shuowen.vernacular` 全为空
+- 上游 `1.1.0-beta.1` 新增、**尚未移植**（据上游 README）：1,628 字形（1,425 Oracular 字体 + 203 HUST-OBC 图像字形）、1,384 说文头、762 别名、1,384 条现代白话转述草稿；卡片增加图像字形渲染
+- 原版形态：DSH 插件（原生 `zhenren_burn` / `zhenren_inscribe` + 系统提示段 + 聊天内 React tool view）
 - 许可：MIT；版权：甲骨贞人 contributors
-- 原始数据/字体来源：见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
-- 原版安装包未随本仓库分发；原版包内未声明公开仓库地址，如原项目有官方地址，请以原项目为准
+- 原版安装包未随本仓库分发；本仓库不是官方版本
 
 ## 安装
 

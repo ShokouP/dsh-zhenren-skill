@@ -7,6 +7,7 @@
 ## 0. 与原插件的关系
 
 本 skill 是 `dsh-plugin-zhenren` 1.0.0-alpha.1 的**移植版**，不是原版，也不是官方版本。
+上游：<https://github.com/SodiumHypo/dsh-plugins/tree/master/packages/zhenren>（当前 master 为 1.1.0-beta.1；本仓库只到 1.0.0-alpha.1 基线，1.1 的 HUST-OBC 图像字形、1,384 说文头 / 762 别名、白话转述尚未移植）。
 原插件的代码、数据与字体版权归原作者与上游来源；本仓库再分发数据 / 字体，并按原插件行为重写了 skill 代码。
 搬运范围、文件对应与差异见 [`ORIGIN.md`](ORIGIN.md)。
 
@@ -27,7 +28,7 @@
 - 来源：<http://www.shuowen.org>（数据仓库 `shuowenjiezi/shuowen`），经 yigezi 整理
 - 授权：**Apache License 2.0**，全文见 [`licenses/Apache-2.0.txt`](licenses/Apache-2.0.txt)
 - 修改声明（Apache-2.0 §4(b)）：本 skill 只抽取 1,425 个甲骨字形相关的字头；删除卷次、反切、音韵等未使用字段；对字头与字形的对应关系做了重新组织，并生成 `glyphs` 与 `aliases` 两层索引（详见 `data/extraction-report.json`）。《说文》原文逐字保留，未改写。
-- `shuowen.vernacular` 是本项目预留的现代白话转述字段，**不是** shuowen.org 原文；当前抽取管线不自动生成，随包值为空字符串，状态为 `draft`。
+- `shuowen.vernacular` 是本项目预留的现代白话转述字段，**不是** shuowen.org 原文；本仓库基线数据的该字段为空字符串，状态为 `draft`；上游 1.1.0-beta.1 已补 1,384 条草稿转述，尚未移植进本仓库。
 - `shuowen.correction` 来自 yigezi 的 `XZ` 古文字旁注，按 yigezi 的 MIT 授权使用，并在字段内标注 `source: "yigezi:XZ"`。
 
 ## 3. yigezi 数据整理与代码

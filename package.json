@@ -2,7 +2,7 @@
   "name": "dsh-zhenren-skill",
   "version": "2.0.0",
   "private": true,
-  "description": "甲骨贞人（移植版）：把 dsh-plugin-zhenren 的占卜协议 / 数据 / 卡片移植为按需加载的 DSH skill，含 1,425 字形、627 别名、1,181 说文头与可回放甲片卡。",
+  "description": "甲骨贞人（移植版，基线 dsh-plugin-zhenren 1.0.0-alpha.1）：把占卜协议 / 数据 / 卡片移植为按需加载的 DSH skill；上游 SodiumHypo/dsh-plugins/packages/zhenren 当前为 1.1.0-beta.1。",
   "license": "MIT",
   "type": "module",
   "repository": {
