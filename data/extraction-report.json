@@ -1,20 +1,38 @@
 {
-  "generatedAt": "2026-11-10T10:14:28.434Z",
+  "generatedAt": "2026-11-11T11:03:07.725Z",
   "counts": {
-    "glyphs": 1425,
-    "glossedGlyphs": 1202,
-    "glyphOnly": 223,
-    "headwords": 1181,
-    "sharedHeadwords": 21,
-    "aliases": 627
+    "glyphs": 1628,
+    "fontGlyphs": 1425,
+    "imageGlyphs": 203,
+    "glossedGlyphs": 1441,
+    "glyphOnly": 187,
+    "headwords": 1384,
+    "sharedHeadwords": 54,
+    "aliases": 762
   },
   "resolution": {
-    "manual-headword": 6,
+    "manual-headword": 72,
+    "exact-sw": 1296,
+    "reverse-w": 45,
+    "opencc": 21,
+    "ts": 7,
+    "none": 187
+  },
+  "fontResolution": {
+    "manual-headword": 72,
     "exact-sw": 1133,
     "reverse-w": 40,
     "opencc": 16,
     "ts": 7,
-    "none": 223
+    "none": 157
+  },
+  "imageResolution": {
+    "manual-headword": 0,
+    "exact-sw": 163,
+    "reverse-w": 5,
+    "opencc": 5,
+    "ts": 0,
+    "none": 30
   },
   "automatic": {
     "exact-sw": 1133,
@@ -24,8 +42,6 @@
     "none": 229
   },
   "unresolved": [
-    "並",
-    "乘",
     "伇",
     "伓",
     "佑",
@@ -34,32 +50,21 @@
     "偪",
     "兕",
     "其",
-    "冉",
-    "冏",
     "冑",
     "冗",
-    "函",
     "刞",
     "刢",
     "剆",
     "剢",
     "剮",
-    "匄",
     "卌",
     "卣",
-    "參",
-    "収",
-    "叟",
-    "叩",
     "吢",
     "吽",
     "呇",
     "咰",
-    "啓",
     "噚",
-    "嚮",
     "坕",
-    "埜",
     "埶",
     "塵",
     "墾",
@@ -67,14 +72,12 @@
     "夙",
     "奷",
     "她",
-    "妍",
     "妞",
     "妥",
     "姀",
     "姃",
     "姒",
     "姛",
-    "姫",
     "娅",
     "娖",
     "娩",
@@ -83,40 +86,30 @@
     "媴",
     "嫀",
     "嬂",
-    "嬉",
     "嬣",
     "孉",
     "孰",
-    "孽",
     "宩",
     "寉",
-    "寢",
     "寮",
-    "尋",
     "尤",
     "屎",
     "峀",
     "島",
-    "巛",
     "康",
     "廌",
-    "廼",
-    "廾",
     "彖",
     "彷",
     "徉",
     "徏",
     "徒",
     "徝",
-    "徠",
     "戎",
     "戓",
     "戝",
     "截",
     "抑",
     "抔",
-    "抱",
-    "擒",
     "攀",
     "敢",
     "散",
@@ -124,7 +117,6 @@
     "昷",
     "智",
     "暊",
-    "暮",
     "暴",
     "曣",
     "替",
@@ -136,22 +128,15 @@
     "杺",
     "枂",
     "柁",
-    "柳",
     "栕",
     "栗",
     "栺",
     "桘",
-    "槁",
-    "歿",
-    "殁",
-    "殞",
     "殻",
     "殼",
-    "氵",
     "汊",
     "汒",
     "汫",
-    "汰",
     "泊",
     "泪",
     "洀",
@@ -165,91 +150,107 @@
     "澅",
     "澫",
     "灷",
-    "災",
     "炈",
     "炋",
     "炘",
     "烕",
-    "焚",
-    "焦",
     "煮",
     "煱",
-    "爫",
-    "爿",
     "狽",
-    "獏",
-    "珏",
     "璞",
     "由",
     "畐",
     "盖",
     "盟",
-    "眀",
     "砋",
     "砓",
-    "稚",
     "笹",
     "粯",
     "糞",
     "紤",
     "紷",
     "絴",
-    "綠",
     "縶",
     "繇",
     "罙",
     "羈",
-    "翌",
-    "耋",
-    "聀",
     "肆",
     "肜",
     "肵",
     "膺",
-    "舎",
-    "艹",
     "蓺",
     "蔖",
     "蕩",
     "薛",
     "虣",
-    "衛",
     "褶",
     "覓",
     "訮",
-    "豪",
-    "農",
-    "辶",
-    "迺",
     "途",
     "遤",
     "邊",
     "鄉",
     "酓",
     "鎷",
-    "镸",
-    "阜",
     "阝",
     "阩",
-    "雪",
-    "雷",
-    "霍",
-    "霰",
     "鞫",
-    "顛",
-    "飮",
-    "飲",
     "駛",
-    "髙",
-    "髭",
     "鳶",
-    "鳸",
     "麝",
-    "龝",
-    "龞"
+    "龞",
+    "值",
+    "免",
+    "墮",
+    "太",
+    "妬",
+    "婭",
+    "媵",
+    "孖",
+    "寕",
+    "寜",
+    "嵗",
+    "幸",
+    "廄",
+    "恆",
+    "沌",
+    "澎",
+    "砍",
+    "粟",
+    "絶",
+    "聼",
+    "臀",
+    "航",
+    "芒",
+    "譚",
+    "霧",
+    "鬰",
+    "鳖",
+    "鳬",
+    "鳯",
+    "鷹"
   ],
   "reverseConflicts": [],
   "aliasConflicts": [
+    {
+      "key": "凫",
+      "candidates": [
+        {
+          "glyphChar": "鳧",
+          "sources": [
+            "opencc",
+            "ts"
+          ]
+        },
+        {
+          "glyphChar": "鳬",
+          "sources": [
+            "opencc"
+          ]
+        }
+      ],
+      "excluded": true
+    },
     {
       "key": "卤",
       "candidates": [
@@ -280,6 +281,44 @@
         },
         {
           "glyphChar": "殼",
+          "sources": [
+            "opencc"
+          ]
+        }
+      ],
+      "excluded": true
+    },
+    {
+      "key": "岁",
+      "candidates": [
+        {
+          "glyphChar": "嵗",
+          "sources": [
+            "opencc"
+          ]
+        },
+        {
+          "glyphChar": "歲",
+          "sources": [
+            "opencc",
+            "ts"
+          ]
+        }
+      ],
+      "excluded": true
+    },
+    {
+      "key": "获",
+      "candidates": [
+        {
+          "glyphChar": "獲",
+          "sources": [
+            "opencc",
+            "ts"
+          ]
+        },
+        {
+          "glyphChar": "穫",
           "sources": [
             "opencc"
           ]
@@ -336,6 +375,7 @@
     "㦿": "reverse-w",
     "㪿": "sw-headword",
     "㯟": "reverse-w",
+    "㱃": "sw-headword",
     "㱏": "reverse-w",
     "㱕": "reverse-w",
     "㶽": "opencc",
@@ -348,11 +388,16 @@
     "䝂": "reverse-w",
     "䠶": "sw-headword",
     "䢉": "sw-headword",
+    "䨘": "reverse-w",
+    "䨮": "sw-headword",
+    "䨷": "sw-headword",
+    "䫉": "reverse-w",
     "䰛": "reverse-w",
     "专": "opencc",
     "东": "opencc",
     "丝": "opencc",
     "丣": "reverse-w",
+    "两": "opencc",
     "丧": "opencc",
     "丰": "opencc",
     "临": "opencc",
@@ -362,7 +407,9 @@
     "乐": "opencc",
     "习": "opencc",
     "乡": "opencc",
+    "书": "opencc",
     "买": "opencc",
+    "乱": "opencc",
     "争": "opencc",
     "亏": "sw-headword",
     "亖": "reverse-w",
@@ -371,6 +418,8 @@
     "仅": "reverse-w",
     "仆": "opencc",
     "仑": "opencc",
+    "仓": "opencc",
+    "仺": "reverse-w",
     "仿": "ts",
     "众": "opencc",
     "会": "opencc",
@@ -382,11 +431,11 @@
     "兴": "opencc",
     "兹": "opencc",
     "兽": "opencc",
+    "冄": "sw-headword",
     "册": "opencc",
     "农": "opencc",
     "冲": "opencc",
     "凤": "opencc",
-    "凫": "opencc",
     "凶": "opencc",
     "凿": "opencc",
     "刍": "opencc",
@@ -397,7 +446,9 @@
     "剐": "opencc",
     "劳": "opencc",
     "匀": "opencc",
+    "匃": "sw-headword",
     "区": "opencc",
+    "华": "opencc",
     "协": "opencc",
     "单": "opencc",
     "卢": "opencc",
@@ -406,6 +457,9 @@
     "卽": "sw-headword",
     "历": "opencc",
     "厈": "reverse-w",
+    "厘": "opencc",
+    "厩": "opencc",
+    "县": "opencc",
     "参": "opencc",
     "发": "opencc",
     "变": "opencc",
@@ -424,6 +478,7 @@
     "垕": "reverse-w",
     "垦": "opencc",
     "域": "reverse-w",
+    "堕": "opencc",
     "墙": "opencc",
     "壶": "opencc",
     "备": "opencc",
@@ -432,13 +487,18 @@
     "妆": "opencc",
     "妇": "opencc",
     "姷": "sw-headword",
+    "娭": "sw-headword",
+    "嫔": "opencc",
     "孃": "sw-headword",
     "孙": "opencc",
+    "孠": "reverse-w",
     "学": "opencc",
+    "孼": "sw-headword",
     "宐": "sw-headword",
     "宝": "opencc",
     "宫": "opencc",
     "宾": "opencc",
+    "寑": "sw-headword",
     "寚": "reverse-w",
     "寝": "opencc",
     "对": "opencc",
@@ -448,7 +508,6 @@
     "尘": "opencc",
     "尧": "opencc",
     "尽": "opencc",
-    "岁": "opencc",
     "岛": "opencc",
     "嶽": "sw-headword",
     "帅": "opencc",
@@ -457,6 +516,7 @@
     "幣": "sw-headword",
     "广": "opencc",
     "庆": "opencc",
+    "床": "opencc",
     "庞": "opencc",
     "异": "opencc",
     "弌": "reverse-w",
@@ -471,13 +531,21 @@
     "怜": "opencc",
     "悖": "reverse-w",
     "惌": "reverse-w",
+    "愧": "reverse-w",
     "憲": "sw-headword",
+    "懷": "sw-headword",
     "戋": "opencc",
     "户": "opencc",
     "执": "opencc",
     "择": "opencc",
+    "挚": "opencc",
+    "挛": "opencc",
+    "捊": "sw-headword",
     "掸": "opencc",
+    "收": "sw-headword",
+    "敂": "sw-headword",
     "敩": "opencc",
+    "敺": "reverse-w",
     "斆": "sw-headword",
     "无": "opencc",
     "旣": "sw-headword",
@@ -487,38 +555,49 @@
     "晋": "opencc",
     "晕": "opencc",
     "曐": "sw-headword",
+    "曑": "sw-headword",
     "曟": "sw-headword",
     "术": "opencc",
     "杀": "opencc",
     "来": "opencc",
     "柵": "sw-headword",
+    "栉": "opencc",
     "栎": "opencc",
     "树": "opencc",
     "桩": "opencc",
+    "桺": "sw-headword",
     "梦": "opencc",
     "棊": "sw-headword",
     "棲": "reverse-w",
+    "椉": "sw-headword",
     "榟": "reverse-w",
     "橹": "opencc",
     "權": "sw-headword",
     "欣": "ts",
     "歖": "reverse-w",
+    "歾": "sw-headword",
     "殒": "opencc",
     "毕": "opencc",
     "汬": "reverse-w",
     "汸": "reverse-w",
+    "泛": "opencc",
     "泞": "opencc",
     "泷": "opencc",
     "泸": "opencc",
     "泺": "opencc",
     "涛": "opencc",
+    "淥": "reverse-w",
     "渊": "opencc",
     "渔": "opencc",
     "温": "opencc",
     "湏": "reverse-w",
+    "湿": "opencc",
+    "濒": "opencc",
     "灭": "opencc",
     "炗": "reverse-w",
     "烾": "reverse-w",
+    "爪": "sw-headword",
+    "牀": "sw-headword",
     "牵": "opencc",
     "犹": "opencc",
     "狈": "opencc",
@@ -528,6 +607,7 @@
     "瓚": "sw-headword",
     "画": "opencc",
     "畴": "opencc",
+    "畺": "sw-headword",
     "瘿": "opencc",
     "监": "opencc",
     "盗": "opencc",
@@ -536,10 +616,13 @@
     "祷": "opencc",
     "禍": "sw-headword",
     "禩": "reverse-w",
+    "离": "opencc",
     "秊": "sw-headword",
     "秫": "sw-headword",
     "称": "opencc",
+    "稺": "sw-headword",
     "穽": "reverse-w",
+    "窥": "opencc",
     "竖": "opencc",
     "竞": "opencc",
     "筐": "reverse-w",
@@ -548,9 +631,16 @@
     "系": "opencc",
     "絷": "opencc",
     "絻": "reverse-w",
+    "緑": "sw-headword",
+    "绅": "opencc",
     "终": "opencc",
+    "绍": "opencc",
+    "绝": "opencc",
+    "绥": "opencc",
+    "续": "opencc",
     "绿": "opencc",
     "编": "opencc",
+    "缪": "opencc",
     "罴": "opencc",
     "羁": "opencc",
     "羅": "sw-headword",
@@ -559,16 +649,18 @@
     "羶": "reverse-w",
     "聂": "opencc",
     "聋": "opencc",
+    "职": "opencc",
     "联": "opencc",
+    "職": "sw-headword",
     "肣": "reverse-w",
     "育": "sw-headword",
     "胄": "opencc",
     "膐": "reverse-w",
     "艰": "opencc",
+    "芈": "opencc",
     "苋": "opencc",
     "荐": "opencc",
     "荡": "opencc",
-    "获": "opencc",
     "蒉": "opencc",
     "蒐": "sw-headword",
     "蕢": "sw-headword",
@@ -578,22 +670,35 @@
     "蛛": "reverse-w",
     "蟬": "sw-headword",
     "蠹": "sw-headword",
+    "衞": "sw-headword",
     "袗": "sw-headword",
     "袭": "opencc",
+    "覍": "sw-headword",
+    "親": "sw-headword",
     "见": "opencc",
     "觅": "opencc",
     "视": "opencc",
+    "觥": "reverse-w",
     "誥": "sw-headword",
+    "證": "sw-headword",
     "讯": "opencc",
     "设": "opencc",
+    "诃": "opencc",
     "诛": "opencc",
+    "谭": "opencc",
+    "豼": "reverse-w",
+    "貌": "reverse-w",
+    "貘": "sw-headword",
     "贝": "opencc",
     "贞": "opencc",
     "责": "opencc",
     "败": "opencc",
     "贪": "opencc",
     "贮": "opencc",
+    "贵": "opencc",
     "贾": "opencc",
+    "赐": "opencc",
+    "赓": "opencc",
     "跻": "opencc",
     "车": "opencc",
     "辇": "opencc",
@@ -602,15 +707,21 @@
     "边": "opencc",
     "辽": "opencc",
     "还": "opencc",
+    "进": "opencc",
     "远": "opencc",
     "迟": "opencc",
     "迩": "opencc",
+    "達": "sw-headword",
     "遟": "reverse-w",
     "遬": "reverse-w",
+    "遷": "sw-headword",
     "邻": "opencc",
     "郁": "opencc",
+    "释": "opencc",
+    "野": "sw-headword",
     "钺": "opencc",
     "铸": "opencc",
+    "镝": "opencc",
     "镬": "opencc",
     "长": "opencc",
     "门": "opencc",
@@ -622,9 +733,17 @@
     "阴": "opencc",
     "阶": "opencc",
     "陆": "opencc",
+    "陇": "opencc",
+    "陨": "opencc",
+    "隕": "sw-headword",
+    "雏": "opencc",
     "雧": "sw-headword",
+    "雾": "opencc",
+    "靁": "sw-headword",
+    "靃": "sw-headword",
     "韦": "opencc",
     "頏": "reverse-w",
+    "顚": "sw-headword",
     "页": "opencc",
     "顶": "opencc",
     "项": "opencc",
@@ -638,23 +757,30 @@
     "饱": "opencc",
     "馭": "reverse-w",
     "马": "opencc",
+    "驱": "opencc",
     "驳": "opencc",
     "驶": "opencc",
     "骊": "opencc",
+    "骑": "opencc",
+    "骤": "opencc",
     "魅": "reverse-w",
     "鱼": "opencc",
     "鲁": "opencc",
     "鲧": "opencc",
     "鵂": "reverse-w",
+    "鶵": "reverse-w",
     "鸟": "opencc",
     "鸠": "opencc",
     "鸢": "opencc",
     "鸣": "opencc",
     "鸿": "opencc",
+    "鹬": "opencc",
+    "鹰": "opencc",
     "麕": "reverse-w",
     "麦": "opencc",
     "黄": "opencc",
     "黾": "opencc",
+    "鼋": "opencc",
     "鼍": "opencc",
     "齐": "opencc",
     "齿": "opencc",
@@ -663,6 +789,7 @@
     "龚": "opencc",
     "龟": "opencc",
     "𠀙": "reverse-w",
+    "𠀠": "reverse-w",
     "𠁡": "reverse-w",
     "𠁧": "reverse-w",
     "𠁩": "reverse-w",
@@ -677,6 +804,7 @@
     "𠄕": "reverse-w",
     "𠄗": "reverse-w",
     "𠄨": "reverse-w",
+    "𠅞": "reverse-w",
     "𠅠": "reverse-w",
     "𠅡": "reverse-w",
     "𠆂": "reverse-w",
@@ -685,6 +813,7 @@
     "𠇚": "reverse-w",
     "𠇬": "reverse-w",
     "𠈍": "reverse-w",
+    "𠈧": "reverse-w",
     "𠈮": "reverse-w",
     "𠈽": "reverse-w",
     "𠉔": "reverse-w",
@@ -695,12 +824,17 @@
     "𠎳": "reverse-w",
     "𠑷": "reverse-w",
     "𠒁": "reverse-w",
+    "𠓥": "reverse-w",
+    "𠔋": "reverse-w",
+    "𠔙": "reverse-w",
+    "𠔝": "reverse-w",
     "𠕈": "reverse-w",
     "𠕞": "reverse-w",
     "𠕢": "reverse-w",
     "𠕬": "reverse-w",
     "𠕲": "reverse-w",
     "𠖔": "reverse-w",
+    "𠖗": "reverse-w",
     "𠖠": "reverse-w",
     "𠘽": "reverse-w",
     "𠙊": "reverse-w",
@@ -721,19 +855,27 @@
     "𠧢": "reverse-w",
     "𠧥": "reverse-w",
     "𠧹": "reverse-w",
+    "𠨮": "reverse-w",
     "𠨷": "reverse-w",
     "𠪳": "reverse-w",
     "𠬚": "reverse-w",
+    "𠬞": "sw-headword",
+    "𠬡": "reverse-w",
     "𠬺": "reverse-w",
     "𠬿": "reverse-w",
     "𠭆": "reverse-w",
+    "𠭛": "reverse-w",
+    "𠭞": "reverse-w",
     "𠮎": "reverse-w",
     "𠰎": "reverse-w",
     "𠱭": "reverse-w",
     "𠲲": "reverse-w",
     "𠴿": "reverse-w",
+    "𠷛": "reverse-w",
     "𠷜": "reverse-w",
     "𠻖": "reverse-w",
+    "𠻝": "reverse-w",
+    "𠼛": "reverse-w",
     "𠾃": "reverse-w",
     "𡃬": "reverse-w",
     "𡅚": "reverse-w",
@@ -748,6 +890,7 @@
     "𡉰": "reverse-w",
     "𡊽": "reverse-w",
     "𡋰": "reverse-w",
+    "𡐨": "reverse-w",
     "𡒉": "reverse-w",
     "𡓵": "reverse-w",
     "𡕛": "reverse-w",
@@ -757,6 +900,7 @@
     "𡚧": "reverse-w",
     "𡚼": "reverse-w",
     "𡜈": "reverse-w",
+    "𡢗": "reverse-w",
     "𡣿": "reverse-w",
     "𡥀": "reverse-w",
     "𡧪": "reverse-w",
@@ -782,7 +926,9 @@
     "𢁛": "reverse-w",
     "𢂇": "reverse-w",
     "𢂟": "reverse-w",
+    "𢂦": "reverse-w",
     "𢆯": "reverse-w",
+    "𢇊": "reverse-w",
     "𢍜": "sw-headword",
     "𢎜": "reverse-w",
     "𢎧": "reverse-w",
@@ -794,14 +940,19 @@
     "𢒄": "reverse-w",
     "𢒠": "reverse-w",
     "𢒧": "reverse-w",
+    "𢒫": "sw-headword",
+    "𢒸": "reverse-w",
     "𢖉": "reverse-w",
     "𢘅": "reverse-w",
+    "𢚇": "reverse-w",
     "𢥁": "reverse-w",
     "𢥒": "reverse-w",
     "𢦠": "reverse-w",
     "𢦩": "reverse-w",
     "𢨇": "reverse-w",
     "𢨋": "reverse-w",
+    "𢪒": "reverse-w",
+    "𢰕": "reverse-w",
     "𢻳": "reverse-w",
     "𢽅": "reverse-w",
     "𢽥": "reverse-w",
@@ -813,6 +964,7 @@
     "𣃟": "reverse-w",
     "𣃦": "reverse-w",
     "𣃪": "reverse-w",
+    "𣄻": "reverse-w",
     "𣅊": "reverse-w",
     "𣅣": "reverse-w",
     "𣍄": "reverse-w",
@@ -823,12 +975,16 @@
     "𣖇": "reverse-w",
     "𣥏": "reverse-w",
     "𣥔": "reverse-w",
+    "𣨏": "reverse-w",
+    "𣲎": "reverse-w",
     "𣲏": "reverse-w",
     "𣲡": "reverse-w",
     "𣶒": "reverse-w",
     "𣻣": "sw-headword",
     "𤆎": "reverse-w",
+    "𤊙": "reverse-w",
     "𤎫": "reverse-w",
+    "𤓪": "sw-headword",
     "𤓽": "reverse-w",
     "𤔲": "reverse-w",
     "𤕝": "reverse-w",
@@ -847,6 +1003,7 @@
     "𤲄": "reverse-w",
     "𤲷": "reverse-w",
     "𤲸": "reverse-w",
+    "𤴐": "reverse-w",
     "𤼩": "reverse-w",
     "𥀍": "reverse-w",
     "𥃈": "reverse-w",
@@ -855,10 +1012,14 @@
     "𥓕": "reverse-w",
     "𥘅": "reverse-w",
     "𥙭": "reverse-w",
+    "𥚨": "reverse-w",
     "𥛇": "reverse-w",
+    "𥛱": "sw-headword",
+    "𥜱": "reverse-w",
     "𥜹": "reverse-w",
     "𥝤": "reverse-w",
     "𥝩": "sw-headword",
+    "𥞷": "reverse-w",
     "𥠼": "reverse-w",
     "𥥉": "reverse-w",
     "𥫍": "reverse-w",
@@ -867,6 +1028,7 @@
     "𥭷": "reverse-w",
     "𥮏": "reverse-w",
     "𥱵": "reverse-w",
+    "𥹺": "reverse-w",
     "𦆩": "reverse-w",
     "𦇚": "reverse-w",
     "𦉭": "reverse-w",
@@ -907,30 +1069,41 @@
     "𧰍": "reverse-w",
     "𧶉": "reverse-w",
     "𧹒": "ts",
+    "𨂮": "reverse-w",
     "𨏖": "reverse-w",
     "𨑋": "reverse-w",
     "𨒈": "reverse-w",
     "𨒌": "sw-headword",
     "𨒛": "reverse-w",
     "𨒥": "reverse-w",
+    "𨒰": "reverse-w",
     "𨓹": "reverse-w",
+    "𨕝": "reverse-w",
     "𨕤": "reverse-w",
     "𨖸": "reverse-w",
+    "𨙧": "reverse-w",
     "𨤥": "reverse-w",
+    "𨥀": "reverse-w",
+    "𨸏": "sw-headword",
     "𨹛": "reverse-w",
     "𨽶": "reverse-w",
     "𨿘": "reverse-w",
+    "𩂩": "reverse-w",
     "𩅟": "reverse-w",
     "𩇒": "reverse-w",
+    "𩇓": "reverse-w",
     "𩇨": "reverse-w",
     "𩍸": "reverse-w",
     "𩒆": "reverse-w",
     "𩕎": "reverse-w",
     "𩕢": "reverse-w",
     "𩙺": "sw-headword",
+    "𩚜": "reverse-w",
     "𩜕": "reverse-w",
     "𩜿": "reverse-w",
+    "𩫕": "reverse-w",
     "𩫖": "reverse-w",
+    "𩫚": "sw-headword",
     "𩫨": "reverse-w",
     "𩫮": "reverse-w",
     "𩱫": "sw-headword",
@@ -952,6 +1125,7 @@
     "𬇕": "opencc",
     "乁": "reverse-w",
     "帨": "reverse-w",
+    "抱": "reverse-w",
     "災": "reverse-w"
   },
   "xz": [
@@ -1008,6 +1182,20 @@
   ],
   "sharedHeadwords": [
     {
+      "headword": "㱃",
+      "glyphChars": [
+        "飮",
+        "飲"
+      ]
+    },
+    {
+      "headword": "䢉",
+      "glyphChars": [
+        "農",
+        "辳"
+      ]
+    },
+    {
       "headword": "丄",
       "glyphChars": [
         "丄",
@@ -1029,6 +1217,28 @@
       ]
     },
     {
+      "headword": "乃",
+      "glyphChars": [
+        "乃",
+        "廼",
+        "迺"
+      ]
+    },
+    {
+      "headword": "來",
+      "glyphChars": [
+        "來",
+        "徠"
+      ]
+    },
+    {
+      "headword": "內",
+      "glyphChars": [
+        "內",
+        "内"
+      ]
+    },
+    {
       "headword": "協",
       "glyphChars": [
         "協",
@@ -1043,10 +1253,66 @@
       ]
     },
     {
+      "headword": "叜",
+      "glyphChars": [
+        "叜",
+        "叟"
+      ]
+    },
+    {
+      "headword": "向",
+      "glyphChars": [
+        "向",
+        "嚮"
+      ]
+    },
+    {
       "headword": "呂",
       "glyphChars": [
         "吕",
         "呂"
+      ]
+    },
+    {
+      "headword": "啟",
+      "glyphChars": [
+        "啓",
+        "啟"
+      ]
+    },
+    {
+      "headword": "囧",
+      "glyphChars": [
+        "冏",
+        "囧"
+      ]
+    },
+    {
+      "headword": "圅",
+      "glyphChars": [
+        "函",
+        "圅"
+      ]
+    },
+    {
+      "headword": "姬",
+      "glyphChars": [
+        "姫",
+        "姬"
+      ]
+    },
+    {
+      "headword": "姸",
+      "glyphChars": [
+        "妍",
+        "姸"
+      ]
+    },
+    {
+      "headword": "川",
+      "glyphChars": [
+        "巛",
+        "川"
       ]
     },
     {
@@ -1060,7 +1326,8 @@
       "headword": "朙",
       "glyphChars": [
         "明",
-        "朙"
+        "朙",
+        "眀"
       ]
     },
     {
@@ -1068,6 +1335,34 @@
       "glyphChars": [
         "弃",
         "棄"
+      ]
+    },
+    {
+      "headword": "槀",
+      "glyphChars": [
+        "槀",
+        "槁"
+      ]
+    },
+    {
+      "headword": "歾",
+      "glyphChars": [
+        "歿",
+        "殁"
+      ]
+    },
+    {
+      "headword": "水",
+      "glyphChars": [
+        "水",
+        "氵"
+      ]
+    },
+    {
+      "headword": "汏",
+      "glyphChars": [
+        "汏",
+        "汰"
       ]
     },
     {
@@ -1080,8 +1375,23 @@
     {
       "headword": "烖",
       "glyphChars": [
+        "災",
         "灾",
         "烖"
+      ]
+    },
+    {
+      "headword": "燓",
+      "glyphChars": [
+        "焚",
+        "燓"
+      ]
+    },
+    {
+      "headword": "玨",
+      "glyphChars": [
+        "玨",
+        "珏"
       ]
     },
     {
@@ -1089,6 +1399,48 @@
       "glyphChars": [
         "殸",
         "磬"
+      ]
+    },
+    {
+      "headword": "禽",
+      "glyphChars": [
+        "擒",
+        "禽"
+      ]
+    },
+    {
+      "headword": "秋",
+      "glyphChars": [
+        "秋",
+        "龝"
+      ]
+    },
+    {
+      "headword": "竝",
+      "glyphChars": [
+        "並",
+        "竝"
+      ]
+    },
+    {
+      "headword": "續",
+      "glyphChars": [
+        "續",
+        "賡"
+      ]
+    },
+    {
+      "headword": "翊",
+      "glyphChars": [
+        "翊",
+        "翌"
+      ]
+    },
+    {
+      "headword": "耊",
+      "glyphChars": [
+        "耊",
+        "耋"
       ]
     },
     {
@@ -1110,6 +1462,27 @@
       "glyphChars": [
         "胶",
         "膠"
+      ]
+    },
+    {
+      "headword": "舍",
+      "glyphChars": [
+        "舍",
+        "舎"
+      ]
+    },
+    {
+      "headword": "艸",
+      "glyphChars": [
+        "艸",
+        "艹"
+      ]
+    },
+    {
+      "headword": "莫",
+      "glyphChars": [
+        "暮",
+        "莫"
       ]
     },
     {
@@ -1141,6 +1514,27 @@
       ]
     },
     {
+      "headword": "辵",
+      "glyphChars": [
+        "辵",
+        "辶"
+      ]
+    },
+    {
+      "headword": "長",
+      "glyphChars": [
+        "長",
+        "镸"
+      ]
+    },
+    {
+      "headword": "雇",
+      "glyphChars": [
+        "雇",
+        "鳸"
+      ]
+    },
+    {
       "headword": "雞",
       "glyphChars": [
         "雞",
@@ -1153,7 +1547,233 @@
         "云",
         "雲"
       ]
+    },
+    {
+      "headword": "頿",
+      "glyphChars": [
+        "頿",
+        "髭"
+      ]
+    },
+    {
+      "headword": "高",
+      "glyphChars": [
+        "高",
+        "髙"
+      ]
     }
   ],
-  "vernacularUnwritten": 1181
+  "imageChars": [
+    "主",
+    "亂",
+    "亲",
+    "仄",
+    "侗",
+    "依",
+    "倉",
+    "值",
+    "兀",
+    "免",
+    "內",
+    "兩",
+    "内",
+    "冥",
+    "冬",
+    "刻",
+    "前",
+    "割",
+    "勺",
+    "医",
+    "卑",
+    "卓",
+    "博",
+    "反",
+    "叒",
+    "吠",
+    "嗣",
+    "囚",
+    "固",
+    "墨",
+    "墮",
+    "夏",
+    "太",
+    "奉",
+    "奔",
+    "妬",
+    "姝",
+    "姸",
+    "婭",
+    "媵",
+    "媿",
+    "嬖",
+    "嬪",
+    "孖",
+    "孛",
+    "宂",
+    "宦",
+    "寕",
+    "寜",
+    "少",
+    "尿",
+    "展",
+    "嵗",
+    "巾",
+    "幸",
+    "廄",
+    "弁",
+    "弄",
+    "弦",
+    "彊",
+    "役",
+    "忻",
+    "怀",
+    "恆",
+    "戾",
+    "扔",
+    "拇",
+    "拘",
+    "摯",
+    "攣",
+    "敖",
+    "斫",
+    "施",
+    "昱",
+    "書",
+    "曼",
+    "桷",
+    "梁",
+    "槃",
+    "檆",
+    "櫛",
+    "毖",
+    "汎",
+    "汩",
+    "沌",
+    "洎",
+    "洧",
+    "浥",
+    "浴",
+    "涿",
+    "游",
+    "湔",
+    "溺",
+    "溼",
+    "滴",
+    "漉",
+    "澎",
+    "濯",
+    "瀑",
+    "瀕",
+    "熊",
+    "燓",
+    "片",
+    "牲",
+    "狂",
+    "狄",
+    "畯",
+    "疆",
+    "皃",
+    "皇",
+    "盆",
+    "盛",
+    "盥",
+    "眚",
+    "砍",
+    "祁",
+    "祊",
+    "祟",
+    "祡",
+    "福",
+    "禘",
+    "稷",
+    "稻",
+    "穅",
+    "穫",
+    "窺",
+    "箕",
+    "粟",
+    "紊",
+    "索",
+    "紳",
+    "紹",
+    "絶",
+    "綏",
+    "縣",
+    "繆",
+    "續",
+    "羋",
+    "羔",
+    "羲",
+    "考",
+    "者",
+    "而",
+    "聖",
+    "聼",
+    "肈",
+    "能",
+    "脊",
+    "膳",
+    "臀",
+    "舍",
+    "航",
+    "色",
+    "艾",
+    "芒",
+    "華",
+    "薶",
+    "虢",
+    "蚩",
+    "血",
+    "衍",
+    "要",
+    "觵",
+    "訶",
+    "譚",
+    "证",
+    "豊",
+    "豢",
+    "貔",
+    "貴",
+    "賜",
+    "賡",
+    "足",
+    "跽",
+    "踰",
+    "达",
+    "迁",
+    "逋",
+    "進",
+    "避",
+    "鄙",
+    "釋",
+    "釐",
+    "金",
+    "鏑",
+    "隴",
+    "雛",
+    "離",
+    "霧",
+    "鞭",
+    "音",
+    "騎",
+    "驅",
+    "驟",
+    "鬰",
+    "鳖",
+    "鳬",
+    "鳯",
+    "鷸",
+    "鷹",
+    "麤",
+    "黿",
+    "龏"
+  ],
+  "imageSources": {
+    "新甲骨文编": 75,
+    "殷契文渊": 9,
+    "六位数字编码": 70,
+    "国学大师": 49
+  },
+  "vernacularWritten": 1384,
+  "vernacularUnwritten": 0
 }

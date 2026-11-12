@@ -13,26 +13,26 @@
 | 项 | 值 |
 |---|---|
 | 包名 | `dsh-plugin-zhenren` |
-| 版本 | `1.0.0-alpha.1`（本仓库移植基线；上游 master 当前 `1.1.0-beta.1`） |
+| 版本 | `1.1.0-beta.1`（本仓库移植基线；上游 master 当前同为 `1.1.0-beta.1`） |
 | 形态 | DSH 插件（不是 MCP server） |
 | 许可 | MIT |
 | 版权 | 甲骨贞人 contributors（见原包 `LICENSE`） |
-| 原包内容 | `lib/`（host + client）、`data/`（oracle.json、字体、抽取报告）、`cordis.patch.yml`、README / 许可证 |
+| 原包内容 | `lib/`（host + client）、`data/`（oracle.json、字体、203 张图像字形、抽取报告、白话转述草稿）、`cordis.patch.yml`、README / 许可证 |
 | 上游仓库 | <https://github.com/SodiumHypo/dsh-plugins/tree/master/packages/zhenren> |
 
 ## 版本基线
 
-- 本仓库以 `dsh-plugin-zhenren@1.0.0-alpha.1` 的本地安装包快照为基线。
-- 上游 `master` 当前为 `1.1.0-beta.1`。
-- 上游 `1.1.0-beta.1` 新增但**尚未移植**（据上游 README）：1,628 字形（1,425 Oracular 字体 + 203 HUST-OBC 图像字形）、1,384 说文头、762 别名、1,384 条现代白话转述草稿、图像字形渲染。
-- 本仓库当前数据：1,425 字形、1,181 说文头、627 别名，与 `1.0.0-alpha.1` 一致；`shuowen.vernacular` 全为空。
+- 本仓库以 `dsh-plugin-zhenren@1.1.0-beta.1` 为基线。
+- 上游 `master` 当前为 `1.1.0-beta.1`，与本仓库一致。
+- 本仓库数据：1,628 字形（1,425 Oracular 字体 + 203 HUST-OBC 图像字形）、762 别名、1,384 说文头、1,384 条草稿白话转述；`supportedCount = 1,628`。
+- 1.1.0-beta.1 的图像字形、说文头/别名扩充、白话转述与 `glyphSource` 渲染分支均已并入；本仓库不声称超越上游。
 
 ## 搬运了什么
 
-- **数据**：`data/oracle.json`（1,425 字形、627 别名、1,181 说文头；基线 1.0.0-alpha.1）与 `data/manifest.json`、`data/extraction-report.json`、`data/alias-overrides.json`，按原包再分发。
-- **字体**：`data/fonts/orac.woff2` 与 `OFL.txt`，按原包再分发（OFL-1.1）。
-- **协议与行为**：命辞 / 占辞规则、唯一 `auspice`、确定性 `CrackSpec`、兆读、1–4 列布局、空刻、刻辞节奏、`highlight` 说文、动画时间线、配置项、连续性语义。这些是依据原包 `lib/index.js.map` 与 `lib/client.js.map` 的 `sourcesContent` 还原出的 TS 源码逐项重写的。
-- **许可证**：原包 `LICENSE`（MIT）与第三方许可证（Apache-2.0 / MIT-yigezi / OFL）随仓库保留。
+- **数据**：`data/oracle.json`（1,628 字形、762 别名、1,384 说文头）与 `data/manifest.json`、`data/extraction-report.json`、`data/alias-overrides.json`、`data/hust-glyphs.json`、`data/vernacular-overrides.json`，按上游 1.1.0-beta.1 再分发。
+- **字体与图像**：`data/fonts/orac.woff2` 与 `OFL.txt`，以及 `data/glyphs/*.png`（203 张 HUST-OBC 图像字形），按上游再分发。
+- **协议与行为**：命辞 / 占辞规则、唯一 `auspice`、确定性 `CrackSpec`、兆读、1–4 列布局、空刻、刻辞节奏、`highlight` 说文、字体/图像两种 `glyphSource`、`supportedCount` 边界行、动画时间线、配置项、连续性语义。这些是依据上游 1.1.0-beta.1 的 `lib/index.js.map` 与 `lib/client.js.map` 的 `sourcesContent` 还原出的 TS 源码逐项重写的。
+- **许可证**：上游 `LICENSE`（MIT）与第三方许可证（Apache-2.0 / MIT-yigezi / OFL）随仓库保留。
 
 ## 没有搬什么
 
@@ -42,13 +42,6 @@
 - **原插件运行时代码**：本仓库不含原包的 `lib/` 产物；CLI 与卡片运行时是按还原源码重写的 JS。
 - **原插件安装包**：本仓库不含 `dsh-plugin-zhenren-*.tgz`。
 
-## 尚未移植（版本差）
-
-- 上游 `1.1.0-beta.1` 的 203 个 HUST-OBC 图像字形（字形总数 1,628）。
-- 1,384 说文头、762 别名（本仓库为 1,181 / 627）。
-- 1,384 条现代白话转述草稿（本仓库基线为空）。
-- 图像字形与字体字形共用刻痕渲染的卡片能力。
-
 ## 文件对应
 
 | 原版 | 本仓库 |
@@ -57,15 +50,16 @@
 | `src/tools/burn.ts` / `inscribe.ts` | `scripts/zhenren.mjs` 的 `burn` / `inscribe` |
 | `src/data/*` | `scripts/zhenren.mjs` 的数据层 + `data/oracle.json` |
 | `src/ritual/*` | `scripts/zhenren.mjs` 的兆象 / 兆纹 / 布局 / 刻辞逻辑 |
+| `src/client/glyph-images.ts` + `src/client/render/glyph-source.ts` | `assets/card.js` 的图像加载与着色分支 |
 | `src/client/views/*` + `src/client/render/*` | `scripts/card.mjs` + `assets/card.css` + `assets/card.js` |
 | `src/config.ts` | `config.json` + CLI 参数 |
 | `src/tools/shared.ts`（进程内 LRU） | `scripts/zhenren.mjs` 的临时状态目录 |
-| `data/`、`licenses/` | 同路径再分发 |
+| `data/`（含 `glyphs/`）、`licenses/` | 同路径再分发 |
 
 ## 许可与归属
 
 - 本仓库的移植代码：MIT。`LICENSE` 同时保留原版版权行与移植版权行。
-- 数据 / 字体：yigezi（MIT）、shuowen.org（Apache-2.0）、Oracular（OFL-1.1）。详见 `THIRD_PARTY_NOTICES.md`、`licenses/`、`data/fonts/OFL.txt`。
+- 数据 / 字体 / 图像：yigezi（MIT）、shuowen.org（Apache-2.0）、Oracular（OFL-1.1）、HUST-OBC 已释字图像（公有领域，arXiv 2401.15365）。详见 `THIRD_PARTY_NOTICES.md`、`licenses/`、`data/fonts/OFL.txt`。
 - 原版代码、数据、字体的版权归原作者与上游来源；上游见 <https://github.com/SodiumHypo/dsh-plugins/tree/master/packages/zhenren>。本仓库只对移植部分负责。
 
 ## 免责

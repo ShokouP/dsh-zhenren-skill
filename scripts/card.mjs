@@ -31,6 +31,7 @@ const COPY = {
     correction: "古文字纠正",
     fontMissing: "字形未加载，仅显示释文。",
     boundary: "兆纹为艺术化表现，非考古复原。",
+    corpus: "字形库 {n} 字；未收字以空刻表示。",
   },
   en: {
     burnTitle: "Scapulimancy",
@@ -48,6 +49,7 @@ const COPY = {
     fontMissing: "Glyph font unavailable; showing the transcription only.",
     boundary:
       "Omen geometry is an artistic convention, not an archaeological reconstruction.",
+    corpus: "Corpus: {n} glyphs; characters outside it are left as blank carves.",
   },
 };
 
@@ -143,6 +145,11 @@ export function renderCardHtml(kind, data) {
         </div>`
       : "";
 
+  const corpus =
+    typeof data.supportedCount === "number" && data.supportedCount > 0
+      ? copy.corpus.replace("{n}", String(data.supportedCount))
+      : "";
+
   const font = isBurn ? null : fontDataUrl();
   const payload = {
     ...data,
@@ -177,7 +184,9 @@ export function renderCardHtml(kind, data) {
   </section>
   ${glosses}
   <footer class="zr-foot">
-    <div class="zr-attrib">${esc(data.attribution)}<br>${esc(copy.boundary)}</div>
+    <div class="zr-attrib">${esc(data.attribution)}<br>${esc(copy.boundary)}${
+      corpus ? `<br><span class="zr-corpus">${esc(corpus)}</span>` : ""
+    }</div>
     ${controls}
   </footer>
 </main>

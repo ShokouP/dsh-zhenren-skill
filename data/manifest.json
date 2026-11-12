@@ -1,21 +1,25 @@
 {
-  "schemaVersion": 1,
-  "generatedAt": "2026-11-10",
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-11",
   "source": {
     "snapshot": "yigezi-main",
     "indexHtmlSha256": "276d116fc0818183f03ce6542856718007d63619d75cf4c57252c331e269ddcd",
     "fontSha256": "3c309ece5c3ac70706268c273253788854e0d1a1686d178be30671c09ec936aa",
     "fontBytes": 397236,
     "opencc": "opencc-js 1.4.2 (build-time only)",
-    "shuowen": "shuowen.org via yigezi"
+    "shuowen": "shuowen.org via yigezi",
+    "images": "HUST-OBC deciphered (arXiv 2401.15365)",
+    "hustGlyphsSha256": "a53f429a56c70b2d07d9e4a9be57a1b823ec8565151ada0d7d8ba3bbbdc7b370"
   },
   "counts": {
-    "glyphs": 1425,
-    "glossedGlyphs": 1202,
-    "glyphOnly": 223,
-    "headwords": 1181,
-    "sharedHeadwords": 21,
-    "aliases": 627
+    "glyphs": 1628,
+    "fontGlyphs": 1425,
+    "imageGlyphs": 203,
+    "glossedGlyphs": 1441,
+    "glyphOnly": 187,
+    "headwords": 1384,
+    "sharedHeadwords": 54,
+    "aliases": 762
   },
   "font": {
     "cmapEntries": 1426,
@@ -31,7 +35,8 @@
     "font": "OFL-1.1",
     "shuowen": "Apache-2.0",
     "yigezi": "MIT",
-    "opencc": "Apache-2.0 (build-time only)"
+    "opencc": "Apache-2.0 (build-time only)",
+    "images": "public-domain glyphs (HUST-OBC, arXiv 2401.15365)"
   },
-  "attribution": "字形：Oracular（OFL-1.1）。《说文》文本：shuowen.org（Apache-2.0）。数据整理：yigezi（MIT）。兆纹为艺术化表现，非考古复原。"
+  "attribution": "字形：Oracular（OFL-1.1）、HUST-OBC 已释字图像（公有领域，arXiv 2401.15365）。《说文》文本：shuowen.org（Apache-2.0）。数据整理：yigezi（MIT）。兆纹为艺术化表现，非考古复原。"
 }

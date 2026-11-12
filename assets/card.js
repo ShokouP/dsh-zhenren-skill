@@ -345,19 +345,86 @@
     ctx.closePath();
   }
 
+  const glyphImages = new Map();
+  const glyphTints = new Map();
+
+  function loadGlyphImages(glyphs) {
+    const urls = new Map();
+    for (const glyph of glyphs || []) {
+      if (!glyph.found || glyph.glyphSource !== "image" || !glyph.glyphChar) continue;
+      if (glyph.imageDataUrl) urls.set(glyph.glyphChar, glyph.imageDataUrl);
+    }
+    const tasks = [];
+    for (const [char, url] of urls) {
+      if (glyphImages.has(char)) continue;
+      tasks.push(
+        new Promise((resolve) => {
+          const image = new Image();
+          image.onload = () => {
+            glyphImages.set(char, image);
+            resolve();
+          };
+          image.onerror = () => resolve();
+          image.src = url;
+        }),
+      );
+    }
+    return Promise.all(tasks).then(() => true);
+  }
+
+  function tintedGlyph(char, image, fillStyle) {
+    const key = `${char}|${fillStyle}`;
+    const cached = glyphTints.get(key);
+    if (cached !== undefined) return cached;
+    const imageWidth = image.naturalWidth || image.width;
+    const imageHeight = image.naturalHeight || image.height;
+    if (imageWidth === 0 || imageHeight === 0) return undefined;
+    const offscreen = document.createElement("canvas");
+    offscreen.width = imageWidth;
+    offscreen.height = imageHeight;
+    const g = offscreen.getContext("2d");
+    if (!g) return undefined;
+    g.drawImage(image, 0, 0);
+    g.globalCompositeOperation = "source-in";
+    g.fillStyle = fillStyle;
+    g.fillRect(0, 0, imageWidth, imageHeight);
+    glyphTints.set(key, offscreen);
+    return offscreen;
+  }
+
+  function stampGlyph(source, x, y, size, fillStyle) {
+    if (source.kind === "font") {
+      ctx.font = `${size}px "${source.fontFamily}"`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = fillStyle;
+      ctx.fillText(source.char, x, y);
+      return true;
+    }
+    const image = glyphImages.get(source.char);
+    if (!image) return false;
+    const tinted = tintedGlyph(source.char, image, fillStyle);
+    if (!tinted) return false;
+    ctx.drawImage(tinted, x - size / 2, y - size / 2, size, size);
+    return true;
+  }
+
+  function sourceOf(glyph) {
+    if (!glyph.glyphChar) return null;
+    return glyph.glyphSource === "image"
+      ? { kind: "image", char: glyph.glyphChar }
+      : { kind: "font", char: glyph.glyphChar, fontFamily: ORACLE_FONT_FAMILY };
+  }
+
   function drawGlyphGhost(input) {
-    if (!input.char) return;
+    if (!input.source.char) return;
     ctx.save();
-    ctx.font = `${input.size}px "${input.fontFamily}"`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillStyle = "rgba(74, 58, 40, 0.16)";
-    ctx.fillText(input.char, input.x, input.y);
+    stampGlyph(input.source, input.x, input.y, input.size, "rgba(74, 58, 40, 0.16)");
     ctx.restore();
   }
 
   function drawCarvedGlyph(input) {
-    if (input.progress <= 0 || !input.char) return;
+    if (input.progress <= 0 || !input.source.char) return;
     const size = input.size;
     const left = input.x - size / 2;
     const top = input.y - size / 2;
@@ -365,17 +432,18 @@
     ctx.save();
     revealClip(left, top, size, input.progress, input.maskSeed);
     ctx.clip();
-    ctx.font = `${size}px "${input.fontFamily}"`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
 
-    ctx.fillStyle = "rgba(250, 242, 226, 0.35)";
-    ctx.fillText(input.char, input.x + size * 0.012, input.y + size * 0.012);
+    stampGlyph(
+      input.source,
+      input.x + size * 0.012,
+      input.y + size * 0.012,
+      size,
+      "rgba(250, 242, 226, 0.35)",
+    );
 
     const strength = clamp(0.55 + input.pressure * 0.45, 0.55, 1);
-    ctx.fillStyle = "rgba(38, 28, 20, 0.92)";
     ctx.globalAlpha = strength;
-    ctx.fillText(input.char, input.x, input.y);
+    stampGlyph(input.source, input.x, input.y, size, "rgba(38, 28, 20, 0.92)");
     ctx.globalAlpha = 1;
     ctx.restore();
   }
@@ -462,6 +530,7 @@
   }
 
   let fontOk = isBurn;
+  let imagesReady = isBurn;
 
   function paintFrame(elapsedMs) {
     if (width <= 0 || height <= 0) return;
@@ -472,7 +541,7 @@
       return;
     }
     if (data.cracks) drawOmen(data.cracks, { heat: 0.12, crack: 1 }, data.seed);
-    if (!fontOk) return;
+    if (!fontOk || !imagesReady) return;
 
     const slots = new Map((data.layout?.slots || []).map((slot) => [slot.index, slot]));
     const steps = new Map((data.carve?.chars || []).map((step) => [step.slot, step]));
@@ -480,14 +549,14 @@
 
     for (const glyph of data.glyphs || []) {
       if (!glyph.found || !glyph.glyphChar) continue;
+      const source = sourceOf(glyph);
       const slot = slots.get(glyph.slot);
-      if (!slot) continue;
+      if (!source || !slot) continue;
       drawGlyphGhost({
-        char: glyph.glyphChar,
+        source,
         x: slot.x * width,
         y: slot.y * height,
         size: slot.size * unit,
-        fontFamily: ORACLE_FONT_FAMILY,
       });
     }
     const progress = carveFrame(data.carve?.chars || [], elapsedMs);
@@ -503,15 +572,16 @@
         drawPlaceholder(x, y, size, revealed, step ? step.maskSeed : glyph.slot);
         continue;
       }
+      const source = sourceOf(glyph);
+      if (!source) continue;
       drawCarvedGlyph({
-        char: glyph.glyphChar,
+        source,
         x,
         y,
         size,
         progress: revealed,
         pressure: step ? step.pressure : 0.8,
         maskSeed: step ? step.maskSeed : glyph.slot,
-        fontFamily: ORACLE_FONT_FAMILY,
       });
     }
   }
@@ -565,7 +635,7 @@
   }
 
   function resume() {
-    if (!animate || done || running || !fontOk) return;
+    if (!animate || done || running || !fontOk || !imagesReady) return;
     running = true;
     startTs = performance.now() - elapsed;
     raf = requestAnimationFrame(tick);
@@ -591,7 +661,7 @@
     if (skip) skip.addEventListener("click", finish);
     if (replay) {
       replay.addEventListener("click", () => {
-        if (!animate || !fontOk) return;
+        if (!animate || !fontOk || !imagesReady) return;
         start();
       });
     }
@@ -615,7 +685,12 @@
     wireControls();
 
     if (!isBurn) {
-      fontOk = await loadOracleFont();
+      const [font, images] = await Promise.all([
+        loadOracleFont(),
+        loadGlyphImages(data.glyphs),
+      ]);
+      fontOk = font;
+      imagesReady = images;
       if (!fontOk) {
         const note = document.querySelector(".zr-font-note");
         if (note) note.hidden = false;
@@ -624,7 +699,7 @@
       }
     }
 
-    if (!animate || !fontOk) {
+    if (!animate || !fontOk || !imagesReady) {
       hideControls();
       finish();
       return;

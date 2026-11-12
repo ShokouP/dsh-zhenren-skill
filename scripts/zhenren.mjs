@@ -30,7 +30,7 @@ const CONFIG_PATH = path.join(SKILL_DIR, "config.json");
 const STATE_DIR = process.env.DSH_ZHENREN_STATE || path.join(os.tmpdir(), "dsh-zhenren-state");
 
 const ATTRIBUTION =
-  "字形：Oracular（OFL-1.1）。《说文》文本：shuowen.org（Apache-2.0）。数据整理：yigezi（MIT）。";
+  "字形：Oracular（OFL-1.1）、HUST-OBC 已释字图像（公有领域，arXiv 2401.15365）。《说文》文本：shuowen.org（Apache-2.0）。数据整理：yigezi（MIT）。";
 const BOUNDARY = "兆纹为艺术化表现，非考古复原。";
 
 const MAX_CHARGE = 24;
@@ -156,8 +156,8 @@ function loadCorpus() {
   } catch (cause) {
     throw new Error(`data-unavailable: 无法读取 ${ORACLE_PATH}: ${cause.message}`);
   }
-  if (raw.schemaVersion !== 1) {
-    throw new Error(`data-unavailable: oracle.json 版本 ${raw.schemaVersion}，本脚本只支持 1`);
+  if (raw.schemaVersion !== 2) {
+    throw new Error(`data-unavailable: oracle.json 版本 ${raw.schemaVersion}，本脚本只支持 2`);
   }
   const glyphs = new Map(Object.entries(raw.glyphs));
   const headwords = new Map(Object.entries(raw.headwords));
@@ -166,13 +166,41 @@ function loadCorpus() {
     if (glyphs.has(key)) throw new Error(`data-unavailable: 别名 ${key} 与字形冲突`);
     if (!glyphs.has(target)) throw new Error(`data-unavailable: 别名 ${key} 指向不存在的字形 ${target}`);
   }
+  let fontGlyphs = 0;
+  let imageGlyphs = 0;
   for (const [char, record] of glyphs) {
     if (record.headword !== null && !headwords.has(record.headword)) {
       throw new Error(`data-unavailable: 字形 ${char} 指向不存在的字头 ${record.headword}`);
     }
+    if (record.source === "image") {
+      if (
+        record.image === null ||
+        typeof record.image !== "object" ||
+        typeof record.image.file !== "string"
+      ) {
+        throw new Error(`data-unavailable: 图像字形 ${char} 缺少 image.file`);
+      }
+      imageGlyphs += 1;
+    } else if (record.source === "font") {
+      fontGlyphs += 1;
+    } else {
+      throw new Error(`data-unavailable: 字形 ${char} 的 source 非法`);
+    }
   }
   if (raw.counts.glyphs !== glyphs.size) {
     throw new Error(`data-unavailable: counts.glyphs=${raw.counts.glyphs}，实际 ${glyphs.size}`);
+  }
+  if (raw.counts.fontGlyphs !== fontGlyphs) {
+    throw new Error(`data-unavailable: counts.fontGlyphs=${raw.counts.fontGlyphs}，实际 ${fontGlyphs}`);
+  }
+  if (raw.counts.imageGlyphs !== imageGlyphs) {
+    throw new Error(`data-unavailable: counts.imageGlyphs=${raw.counts.imageGlyphs}，实际 ${imageGlyphs}`);
+  }
+  if (raw.counts.headwords !== headwords.size) {
+    throw new Error(`data-unavailable: counts.headwords=${raw.counts.headwords}，实际 ${headwords.size}`);
+  }
+  if (raw.counts.aliases !== aliases.size) {
+    throw new Error(`data-unavailable: counts.aliases=${raw.counts.aliases}，实际 ${aliases.size}`);
   }
   return {
     raw,
@@ -193,7 +221,12 @@ function toFound(query, glyphChar, record, matchedBy) {
   const headword = record.headword;
   const headwordRecord = headword === null ? undefined : HEADWORDS.get(headword);
   const shuowen = headwordRecord === undefined ? null : headwordRecord.shuowen;
-  const sources = [{ kind: "oracleGlyph", value: "Oracular (yigezi)" }];
+  const glyphSource = record.source;
+  const glyphOrigin =
+    glyphSource === "image" && record.image !== undefined
+      ? `HUST-OBC (${record.image.source}, arXiv 2401.15365)`
+      : "Oracular (yigezi)";
+  const sources = [{ kind: "oracleGlyph", value: glyphOrigin }];
   if (shuowen !== null && headwordRecord !== undefined) {
     sources.push({ kind: "shuowen", value: headwordRecord.sources.shuowen });
   }
@@ -205,6 +238,7 @@ function toFound(query, glyphChar, record, matchedBy) {
     query,
     normalized: glyphChar,
     glyphChar,
+    glyphSource,
     headword,
     shuowen,
     matchedBy,
@@ -931,6 +965,7 @@ function cmdBurn(args) {
   const cardPath = writeCard(
     "burn",
     {
+      version: 2,
       id: divinationId,
       seed,
       shellSeed: `shell-${seed}`,
@@ -942,6 +977,7 @@ function cmdBurn(args) {
       auspice,
       burnPoint,
       cracks,
+      supportedCount: CORPUS.supportedCount,
       animation: config.animation,
       showShuowen: config.showShuowen,
       locale: config.locale,
@@ -970,6 +1006,7 @@ function cmdBurn(args) {
     chargeGlyphs: toChargeGlyphs(plan),
     missing: plan.missing,
     cracks,
+    supportedCount: CORPUS.supportedCount,
     animation: config.animation,
     showShuowen: config.showShuowen,
     locale: config.locale,
@@ -977,8 +1014,13 @@ function cmdBurn(args) {
     boundary: BOUNDARY,
     corpus: {
       glyphs: CORPUS.counts.glyphs,
-      aliases: CORPUS.counts.aliases,
+      fontGlyphs: CORPUS.counts.fontGlyphs,
+      imageGlyphs: CORPUS.counts.imageGlyphs,
+      glossedGlyphs: CORPUS.counts.glossedGlyphs,
+      glyphOnly: CORPUS.counts.glyphOnly,
       headwords: CORPUS.counts.headwords,
+      sharedHeadwords: CORPUS.counts.sharedHeadwords,
+      aliases: CORPUS.counts.aliases,
       supportedCount: CORPUS.supportedCount,
     },
     cardPath,
@@ -1013,6 +1055,7 @@ function inscriptionFailure(error) {
     warnings: [],
     error,
     continuity: null,
+    supportedCount: 0,
     attribution: ATTRIBUTION,
   };
 }
@@ -1111,6 +1154,7 @@ function cmdInscribe(args) {
       glossFound: lookup.shuowen !== null,
       headword: lookup.headword,
       glyphChar: lookup.glyphChar,
+      glyphSource: lookup.glyphSource,
       shuowen: highlightSet.has(entry.char) ? lookup.shuowen : null,
       placeholder: false,
     };
@@ -1138,7 +1182,20 @@ function cmdInscribe(args) {
     found: glyph.found,
     glyphChar: glyph.found ? glyph.glyphChar : null,
     placeholder: !glyph.found,
+    glyphSource: glyph.found ? glyph.glyphSource : "font",
   }));
+  const cardGlyphs = metaGlyphs.map((glyph) => {
+    if (!glyph.found || glyph.glyphSource !== "image") return glyph;
+    const record = GLYPHS.get(glyph.glyphChar);
+    const file = record?.image?.file;
+    if (!file) return glyph;
+    try {
+      const bytes = fs.readFileSync(path.join(DATA_DIR, file));
+      return { ...glyph, imageDataUrl: `data:image/png;base64,${bytes.toString("base64")}` };
+    } catch {
+      return glyph;
+    }
+  });
   const carve = planCarve(
     seed,
     glyphs.map((glyph) => ({ slot: glyph.slot, found: glyph.found })),
@@ -1149,6 +1206,7 @@ function cmdInscribe(args) {
   const cardPath = writeCard(
     "inscribe",
     {
+      version: 2,
       id,
       seed,
       shellSeed: `shell-${seed}`,
@@ -1161,7 +1219,8 @@ function cmdInscribe(args) {
       auspice: continuity === null ? null : continuity.auspice,
       burnPoint: continuity === null ? null : continuity.burnPoint,
       cracks: continuity === null ? null : continuity.cracks,
-      glyphs: metaGlyphs,
+      glyphs: cardGlyphs,
+      supportedCount: CORPUS.supportedCount,
       layout,
       carve,
       transcription,
@@ -1196,6 +1255,7 @@ function cmdInscribe(args) {
     warnings,
     error: null,
     continuity: continuity === null ? null : { auspice: continuity.auspice, burnPoint: continuity.burnPoint },
+    supportedCount: CORPUS.supportedCount,
     animation: config.animation,
     showShuowen: config.showShuowen,
     locale: config.locale,

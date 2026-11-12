@@ -183,6 +183,10 @@ body {
   overflow-wrap: anywhere;
 }
 
+.zr-corpus {
+  opacity: 0.9;
+}
+
 .zr-controls {
   display: flex;
   gap: 8px;
