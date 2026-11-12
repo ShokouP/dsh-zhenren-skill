@@ -1067,8 +1067,9 @@ function cmdInscribe(args) {
     emit(inscriptionFailure("--direction 只支持 rtl / ltr"));
     return;
   }
-  const requestedColumns =
+  const parsedColumns =
     args.columns === undefined ? undefined : Number.parseInt(String(args.columns), 10);
+  const requestedColumns = Number.isFinite(parsedColumns) ? parsedColumns : undefined;
   const layout = computeLayout({
     count: charCount,
     requestedColumns,
